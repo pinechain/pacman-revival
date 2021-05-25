@@ -6,16 +6,11 @@ using Bladengine.Input;
 
 namespace Bladengine.Character
 {
-    public class BaseMovementController : MonoBehaviour
+    public abstract class BaseMovementController : MonoBehaviour
     {
         #region Movement
         private InputMap inputMap;
         private CharacterController characterController;
-        #endregion
-
-        #region Data
-        [SerializeField]
-        private float movementSpeed = 2.0f;
         #endregion
 
         #region State
@@ -23,7 +18,7 @@ namespace Bladengine.Character
         #endregion
 
         #region MonoBehaviour
-        private void Awake()
+        protected void Awake()
         {
             characterController = GetComponent<CharacterController>();
             inputMap = new InputMap();
@@ -32,31 +27,37 @@ namespace Bladengine.Character
             inputMap.Character.Move.canceled += _ => halt();
         }
 
-        private void Update()
+        protected void Update()
         {
-            characterController.Move(movingDirection * Time.deltaTime * movementSpeed); 
+            characterController.Move(movingDirection * Time.deltaTime * calculateMoveSpeed());
         }
 
-        private void OnEnable()
+        protected void OnEnable()
         {
             inputMap.Enable();
         }
 
-        private void OnDisable()
+        protected void OnDisable()
         {
             inputMap.Disable();
         }
         #endregion
 
-        private void move(Vector2 direction)
+        #region Movement
+        protected void move(Vector2 direction)
         {
             movingDirection = direction;
             transform.forward = movingDirection;
         }
 
-        private void halt()
+        protected void halt()
         {
             movingDirection = Vector2.zero;
         }
+        #endregion
+
+        #region Inheritance
+        protected abstract float calculateMoveSpeed();
+        #endregion
     }
 }
