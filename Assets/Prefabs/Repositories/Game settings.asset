@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd08bf068f7f814f8916aa12c3e2599, type: 3}
+  m_Name: Game settings
+  m_EditorClassIdentifier: 
+  pacGuyMovementSpeed: 2
+  ghostMovementSpeed: 0
+  specialCherryMovementSpeed: 0
+  specialCherrySpawnRate: 0
+  cherryConsumptionScore: 10
+  ghostConsumptionScore: 30
+  secondsLeftScore: 2
+  totalTimeInSeconds: 90
