@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Game settings
   m_EditorClassIdentifier: 
   pacGuyMovementSpeed: 2
-  ghostMovementSpeed: 0
+  ghostMovementSpeedRandomizer: 0.1
+  persecutionRange: 3
   specialCherryMovementSpeed: 0
   specialCherrySpawnRate: 0
   cherryConsumptionScore: 10

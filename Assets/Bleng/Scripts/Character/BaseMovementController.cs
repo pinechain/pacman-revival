@@ -3,18 +3,24 @@ using System;
 using UnityEngine;
 
 using Bladengine.Input;
+using Bladengine.Enumerations;
 
 namespace Bladengine.Character
 {
     public abstract class BaseMovementController : MonoBehaviour
     {
+        #region Attributes
+        [SerializeField]
+        private OrientationType orientationAxis;
+        #endregion
+
         #region Movement
         private InputMap inputMap;
         private CharacterController characterController;
         #endregion
 
         #region State
-        private Vector2 movingDirection = Vector2.zero;
+        private Vector3 movingDirection = Vector2.zero;
         #endregion
 
         #region MonoBehaviour
@@ -46,7 +52,15 @@ namespace Bladengine.Character
         #region Movement
         protected void move(Vector2 direction)
         {
-            movingDirection = direction;
+            switch (orientationAxis)
+            {
+                case OrientationType.XY:
+                    movingDirection = direction;
+                    break;
+                case OrientationType.XZ:
+                    movingDirection = new Vector3(direction.x, 0, direction.y);
+                    break;
+            }
             transform.forward = movingDirection;
         }
 

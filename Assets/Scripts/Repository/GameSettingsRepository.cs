@@ -10,9 +10,12 @@ namespace PacmanRevival.Repository
         {
             get => pacGuyMovementSpeed;
         }
-        public float GhostMovementSpeed
+        public float GhostMovementSpeedRandomizer
         {
-            get =>ghostMovementSpeed;
+            get => ghostMovementSpeedRandomizer;
+        }
+        public float PersecutionRange {
+            get => persecutionRange;
         }
         public float SpecialCherryMovementSpeed
         {
@@ -41,14 +44,18 @@ namespace PacmanRevival.Repository
         #endregion
 
         #region Backing Fields
-        [Header("Movement")]
+        [Header("PacGuy Movement")]
         [SerializeField]
         private float pacGuyMovementSpeed;
-        [SerializeField]
-        private float ghostMovementSpeed;
-        [SerializeField]
 
+        [Header("Ghost Movement")]
+        [SerializeField]
+        private float ghostMovementSpeedRandomizer;
+        [SerializeField]
+        private float persecutionRange;
+        
         [Header("Special Cherries")]
+        [SerializeField]
         private float specialCherryMovementSpeed;
         [SerializeField]
         private float specialCherrySpawnRate;

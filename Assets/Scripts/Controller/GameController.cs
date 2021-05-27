@@ -84,7 +84,6 @@ namespace PacmanRevival.Controller
             while (gameData.IsRunning)
             {
                 gameData.RemainingTimeInSeconds--;
-                Debug.Log(gameData.RemainingTimeInSeconds);
                 if (gameData.RemainingTimeInSeconds == 0)
                 {
                     onGameFinished(false);
