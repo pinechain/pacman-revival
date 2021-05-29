@@ -1,4 +1,5 @@
 using System.Collections;
+
 using UnityEngine;
 
 using PacmanRevival.Repository;
@@ -26,18 +27,22 @@ namespace PacmanRevival.Controller
             gameData.IsRunning = false;
             gameData.CurrentScore = 0;
             gameData.RemainingTimeInSeconds = gameSettings.TotalTimeInSeconds;
+
+            initCherries();
         }
 
         private void OnEnable()
         {
             gameData.subscribe(GameDataType.EatenCherries, onCherryEaten);
             gameData.subscribe(GameDataType.IsRunning, onGameStarted);
+            gameData.subscribe(GameDataType.PacGuyIsDead, onPacGuyKilled);
         }
 
         private void OnDisable()
         {
             gameData.unsubscribe(GameDataType.EatenCherries, onCherryEaten);
             gameData.unsubscribe(GameDataType.IsRunning, onGameStarted);
+            gameData.unsubscribe(GameDataType.PacGuyIsDead, onPacGuyKilled);
         }
         #endregion
 
@@ -79,6 +84,14 @@ namespace PacmanRevival.Controller
             }
         }
 
+        private void onPacGuyKilled()
+        {
+            if (gameData.IsRunning && gameData.PacGuyIsDead)
+            {
+                onGameFinished(false);
+            }
+        }
+
         private IEnumerator onTimePassedCR(float secondsPassed)
         {
             while (gameData.IsRunning)
@@ -90,6 +103,25 @@ namespace PacmanRevival.Controller
                 }
                 yield return new WaitForSeconds(secondsPassed);
             }
+        }
+        #endregion
+
+        #region Setup
+        private void initCherries()
+        {
+            foreach (GameObject cherry in GameObject.FindGameObjectsWithTag("Cherry"))
+            {
+                if (Random.Range(0f, 1.0f) < gameSettings.SpecialCherrySpawnRate)
+                {
+                    evolveCherry(cherry);
+                }
+            }
+        }
+
+        private void evolveCherry(GameObject cherry)
+        {
+            cherry.SetActive(false);
+            cherry.transform.parent.GetChild(1).gameObject.SetActive(true);
         }
         #endregion
     }

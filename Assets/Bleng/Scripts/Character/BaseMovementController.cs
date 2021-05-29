@@ -41,11 +41,13 @@ namespace Bladengine.Character
         protected void OnEnable()
         {
             inputMap.Enable();
+            doOnEnable();
         }
 
         protected void OnDisable()
         {
             inputMap.Disable();
+            doOnDisable();
         }
         #endregion
 
@@ -71,6 +73,8 @@ namespace Bladengine.Character
         #endregion
 
         #region Inheritance
+        protected virtual void doOnEnable() {}
+        protected virtual void doOnDisable() {}
         protected abstract float calculateMoveSpeed();
         #endregion
     }

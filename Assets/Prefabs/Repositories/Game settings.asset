@@ -15,8 +15,9 @@ MonoBehaviour:
   pacGuyMovementSpeed: 2
   ghostMovementSpeedRandomizer: 0.1
   persecutionRange: 3
-  specialCherryMovementSpeed: 0
-  specialCherrySpawnRate: 0
+  specialCherryMovementSpeed: 0.2
+  specialCherrySpawnRate: 0.05
+  specialCherryDuration: 5
   cherryConsumptionScore: 10
   ghostConsumptionScore: 30
   secondsLeftScore: 2

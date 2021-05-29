@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &417467781 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -5217462367064412289, guid: 308660fedfe11764ca084456da0d0a87,
-    type: 3}
-  m_PrefabInstance: {fileID: 3183935059492007646}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d99edf0d8cd8ea489bbf1727fc3d91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &523355123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,7 +134,22 @@ PrefabInstance:
         type: 3}
       propertyPath: pacGuy
       value: 
-      objectReference: {fileID: 417467781}
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: a2179145577267e4784a90ce51efeef5, type: 2}
     - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: visitingPoints.Array.data[0].x
@@ -232,6 +235,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pacGuy
+      value: 
+      objectReference: {fileID: 3183935059492007647}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pointsCollection
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bbae3ee56574b548bbff137199b6262,
+        type: 2}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: a2179145577267e4784a90ce51efeef5, type: 2}
     - target: {fileID: 6973346478702026685, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: m_RootOrder
@@ -393,7 +417,22 @@ PrefabInstance:
         type: 3}
       propertyPath: pacGuy
       value: 
-      objectReference: {fileID: 417467781}
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: e14c1ded448c6544a848629cf466b850, type: 2}
     - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: visitingPoints.Array.data[0].x
@@ -474,6 +513,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yellow Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pacGuy
+      value: 
+      objectReference: {fileID: 3183935059492007647}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pointsCollection
+      value: 
+      objectReference: {fileID: 11400000, guid: 75649c0024afb8e49837a42810c9e862,
+        type: 2}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: e14c1ded448c6544a848629cf466b850, type: 2}
     - target: {fileID: 6973346478702026685, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: m_RootOrder
@@ -663,7 +723,17 @@ PrefabInstance:
         type: 3}
       propertyPath: pacGuy
       value: 
-      objectReference: {fileID: 417467781}
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aaa03f61140fb4498387b39525497f8, type: 2}
     - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: visitingPoints.Array.data[0].x
@@ -744,6 +814,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pink Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pacGuy
+      value: 
+      objectReference: {fileID: 3183935059492007647}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pointsCollection
+      value: 
+      objectReference: {fileID: 11400000, guid: 5acee634206464048bc4147ab225a437,
+        type: 2}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aaa03f61140fb4498387b39525497f8, type: 2}
     - target: {fileID: 6973346478702026685, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1156,6 +1242,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 308660fedfe11764ca084456da0d0a87, type: 3}
+--- !u!114 &3183935059492007647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6418522229831902124, guid: 308660fedfe11764ca084456da0d0a87,
+    type: 3}
+  m_PrefabInstance: {fileID: 3183935059492007646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64162f91773fcd4ebf7600259767a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5859488044731000170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1167,7 +1265,22 @@ PrefabInstance:
         type: 3}
       propertyPath: pacGuy
       value: 
-      objectReference: {fileID: 417467781}
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ce668a39d024514c8270834b6dd2163, type: 2}
     - target: {fileID: 10697488078621858, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: visitingPoints.Array.data[0].x
@@ -1253,6 +1366,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pacGuy
+      value: 
+      objectReference: {fileID: 3183935059492007647}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: origin.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: pointsCollection
+      value: 
+      objectReference: {fileID: 11400000, guid: faed2cb3dc4a22c46b4eb1306fee4dc6,
+        type: 2}
+    - target: {fileID: 5917242628375094558, guid: 4a444e17873b6e140be8a3ca60f02d9e,
+        type: 3}
+      propertyPath: defaultAppearance
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ce668a39d024514c8270834b6dd2163, type: 2}
     - target: {fileID: 6973346478702026685, guid: 4a444e17873b6e140be8a3ca60f02d9e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1317,6 +1451,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 103331726139981652, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 266056576067631567, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 322637813069093963, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2408331016838916354, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2663168143573780425, guid: 6c365c91f10cdc84daa33af183615c55,
         type: 3}
       propertyPath: m_RootOrder
@@ -1372,10 +1526,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3563980543543310516, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229400964904231165, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947682488593742047, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6160053181892026032, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473580395864458215, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548643261273577699, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306581840861911376, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623487862649619463, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708933970391670531, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8563800913902195114, guid: 6c365c91f10cdc84daa33af183615c55,
         type: 3}
       propertyPath: m_Name
       value: Maze - Standard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582982409109898222, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983441889773657502, guid: 6c365c91f10cdc84daa33af183615c55,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c365c91f10cdc84daa33af183615c55, type: 3}

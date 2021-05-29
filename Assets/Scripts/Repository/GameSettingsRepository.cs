@@ -25,6 +25,10 @@ namespace PacmanRevival.Repository
         {
             get => specialCherrySpawnRate;
         }
+        public float SpecialCherryDuration
+        {
+            get => specialCherryDuration;
+        }
         public int CherryConsumptionScore
         {
             get => cherryConsumptionScore;
@@ -59,6 +63,8 @@ namespace PacmanRevival.Repository
         private float specialCherryMovementSpeed;
         [SerializeField]
         private float specialCherrySpawnRate;
+        [SerializeField]
+        private float specialCherryDuration;
         [SerializeField]
 
         [Header("Score")]

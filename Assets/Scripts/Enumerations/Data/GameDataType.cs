@@ -6,10 +6,12 @@ namespace PacmanRevival.Enumerations.Data
     {
         TotalCherries,
         EatenCherries,
+        SpecialCherryIsConsumed,
         StdHiscore,
         RdHiscore,
         CurrentScore,
         RemainingTimeInSeconds,
-        IsRunning
+        IsRunning,
+        PacGuyIsDead
     }
 }
