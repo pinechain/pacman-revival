@@ -20,6 +20,11 @@ namespace PacmanRevival.Repository
             get => eatenCherries;
             set => trigger(GameDataType.EatenCherries, value);
         }
+        public bool SpecialCherryIsConsumed
+        {
+            get => specialCherryIsConsumed;
+            set => trigger(GameDataType.SpecialCherryIsConsumed, value);
+        }
         public int StdHiscore
         {
             get => standardHiscore;
@@ -45,6 +50,11 @@ namespace PacmanRevival.Repository
             get => isRunning;
             set => trigger(GameDataType.IsRunning, value);
         }
+        public bool PacGuyIsDead
+        {
+            get => pacGuyIsDead;
+            set => trigger(GameDataType.PacGuyIsDead, value);
+        }
         #endregion
 
         #region Backing Fields
@@ -53,6 +63,8 @@ namespace PacmanRevival.Repository
         private int totalCherries;
         [SerializeField]
         private int eatenCherries;
+        [SerializeField]
+        private bool specialCherryIsConsumed;
 
         [Header("Score")]
         [SerializeField]
@@ -69,6 +81,8 @@ namespace PacmanRevival.Repository
         [Header("Flags")]
         [SerializeField]
         private bool isRunning;
+        [SerializeField]
+        private bool pacGuyIsDead;
         #endregion
 
         #region Notifications
@@ -100,10 +114,7 @@ namespace PacmanRevival.Repository
                     break;
             }
 
-            if (onDataChanged[(int)gameDataType] != null)
-            {
-                onDataChanged[(int)gameDataType]();
-            }
+            notifyChange(gameDataType);
         }
         private void trigger(GameDataType gameDataType, bool value)
         {
@@ -112,8 +123,19 @@ namespace PacmanRevival.Repository
                 case GameDataType.IsRunning:
                     isRunning = value;
                     break;
+                case GameDataType.SpecialCherryIsConsumed:
+                    specialCherryIsConsumed = value;
+                    break;
+                case GameDataType.PacGuyIsDead:
+                    pacGuyIsDead = value;
+                    break;
             }
 
+            notifyChange(gameDataType);
+        }
+
+        private void notifyChange(GameDataType gameDataType)
+        {
             if (onDataChanged[(int)gameDataType] != null)
             {
                 onDataChanged[(int)gameDataType]();

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4012534900651829227}
   - component: {fileID: 4996010422543444153}
   - component: {fileID: -4889347252388355466}
-  - component: {fileID: -5217462367064412289}
   - component: {fileID: 34460227876527774}
   - component: {fileID: 3764661301317571313}
   - component: {fileID: 5739556482352044369}
+  - component: {fileID: 6418522229831902124}
   m_Layer: 0
   m_Name: PacGuy
   m_TagString: Player
@@ -104,21 +104,6 @@ CharacterController:
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5217462367064412289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832325013036689063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d99edf0d8cd8ea489bbf1727fc3d91f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientationAxis: 1
-  gameSettings: {fileID: 11400000, guid: 9007b232d178e2245b5a24dc44bc0fc7, type: 2}
-  gameData: {fileID: 11400000, guid: 0dbf45c242531ff468c5051b5721a481, type: 2}
 --- !u!54 &34460227876527774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,3 +147,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 0dbf45c242531ff468c5051b5721a481, type: 2}
   gameSettings: {fileID: 11400000, guid: 9007b232d178e2245b5a24dc44bc0fc7, type: 2}
+--- !u!114 &6418522229831902124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832325013036689063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64162f91773fcd4ebf7600259767a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientationAxis: 1
+  origin: {x: 0, y: 0.3, z: -5}
+  gameSettings: {fileID: 11400000, guid: 9007b232d178e2245b5a24dc44bc0fc7, type: 2}
+  gameData: {fileID: 11400000, guid: 0dbf45c242531ff468c5051b5721a481, type: 2}
