@@ -71,6 +71,8 @@ namespace PacmanRevival.Controller
             gameData.subscribe(GameDataType.RemainingTimeInSeconds, onTimePassed);
             gameData.subscribe(GameDataType.CurrentScore, onScoreChanged);
             gameData.subscribe(GameDataType.IsRunning, onGameFinished);
+            
+            hideAnnouncement();
         }
 
         private void OnDisable()
@@ -90,7 +92,15 @@ namespace PacmanRevival.Controller
         {
             if (!gameData.IsRunning)
             {
-                showAnnouncement(gameData.PacGuyIsDead || gameData.RemainingTimeInSeconds <= 0 ? ANNOUNCEMENT_FAILURE : ANNOUNCEMENT_VICTORY, PREFIX_SCORE + gameData.CurrentScore);
+                if (gameData.PacGuyIsDead || gameData.RemainingTimeInSeconds <= 0)
+                {
+                    showAnnouncement(ANNOUNCEMENT_FAILURE, PREFIX_SCORE + gameData.CurrentScore);
+                }
+                else if (gameData.EatenCherries == gameData.TotalCherries)
+                {
+                    showAnnouncement(ANNOUNCEMENT_VICTORY, PREFIX_SCORE + gameData.CurrentScore);
+                }
+                
             }
         }
         #endregion
@@ -108,5 +118,7 @@ namespace PacmanRevival.Controller
         }
 
         public void hideAnnouncement() => announcementMessage.transform.parent.gameObject.SetActive(false);
+    
+        public void closeApplication() => Application.Quit();
     }
 }

@@ -109,11 +109,9 @@ namespace PacmanRevival.Controller
         {
             foreach (GameObject pathWithDrops in GameObject.FindGameObjectsWithTag("Path with drops"))
             {
-                GameObject cherry = pathWithDrops.transform.GetChild(3).GetChild(0).gameObject;
-                GameObject specialCherry = pathWithDrops.transform.GetChild(3).GetChild(1).gameObject;
-                if (!cherry.activeInHierarchy && !specialCherry.activeInHierarchy)
+                if (!pathWithDrops.transform.GetChild(3).GetChild(1).gameObject.activeInHierarchy)
                 {
-                    cherry.SetActive(true);
+                    pathWithDrops.transform.GetChild(3).GetChild(0).gameObject.SetActive(true);
                 }
             }
         }
