@@ -49,38 +49,13 @@ namespace PacmanRevival.Controller
         #region Callbacks
         private void onGameStarted() => StartCoroutine(onTimePassedCR(1.0f));
 
-        private void onGameFinished(bool victory)
-        {
-            gameData.IsRunning = false;
-            // TODO: Calculate final score
-            // TODO: Calculate hiscore
-            if (victory)
-            {
-                onGameWon();
-            }
-            else
-            {
-                onGameLost();
-            }
-        }
-
-        private void onGameWon()
-        {
-            // TODO: Show victory screen
-            Debug.Log("You win!");
-        }
-
-        private void onGameLost()
-        {
-            // TODO: Show Losing screen
-            Debug.Log("You lose!");
-        }
+        private void onGameFinished() => gameData.IsRunning = false;
 
         private void onCherryEaten()
         {
             if (gameData.IsRunning && gameData.EatenCherries == gameData.TotalCherries)
             {
-                onGameFinished(true);
+                onGameFinished();
             }
         }
 
@@ -88,7 +63,7 @@ namespace PacmanRevival.Controller
         {
             if (gameData.IsRunning && gameData.PacGuyIsDead)
             {
-                onGameFinished(false);
+                onGameFinished();
             }
         }
 
@@ -99,7 +74,7 @@ namespace PacmanRevival.Controller
                 gameData.RemainingTimeInSeconds--;
                 if (gameData.RemainingTimeInSeconds == 0)
                 {
-                    onGameFinished(false);
+                    onGameFinished();
                 }
                 yield return new WaitForSeconds(secondsPassed);
             }
