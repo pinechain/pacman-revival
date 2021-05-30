@@ -20,21 +20,14 @@ namespace PacmanRevival.Controller
         #region MonoBehaviour
         private void Awake()
         {
-            gameData.TotalCherries = GameObject.FindGameObjectsWithTag("Cherry").Length;
-            gameData.EatenCherries = 0;
-            gameData.StdHiscore = 0; // TODO: Retrieve information from storage
-            gameData.RdHiscore = 0; // TODO: Retrieve information from storage
-            gameData.IsRunning = false;
-            gameData.CurrentScore = 0;
-            gameData.RemainingTimeInSeconds = gameSettings.TotalTimeInSeconds;
-
-            initCherries();
+            reset();
         }
 
         private void OnEnable()
         {
             gameData.subscribe(GameDataType.EatenCherries, onCherryEaten);
             gameData.subscribe(GameDataType.IsRunning, onGameStarted);
+            gameData.subscribe(GameDataType.IsRunning, onGameFinished);
             gameData.subscribe(GameDataType.PacGuyIsDead, onPacGuyKilled);
         }
 
@@ -42,20 +35,33 @@ namespace PacmanRevival.Controller
         {
             gameData.unsubscribe(GameDataType.EatenCherries, onCherryEaten);
             gameData.unsubscribe(GameDataType.IsRunning, onGameStarted);
+            gameData.unsubscribe(GameDataType.IsRunning, onGameFinished);
             gameData.unsubscribe(GameDataType.PacGuyIsDead, onPacGuyKilled);
         }
         #endregion
 
         #region Callbacks
-        private void onGameStarted() => StartCoroutine(onTimePassedCR(1.0f));
+        private void onGameStarted()
+        {
+            if (gameData.IsRunning)
+            {
+                StartCoroutine(onTimePassedCR(1.0f));
+            }
+        }
 
-        private void onGameFinished() => gameData.IsRunning = false;
+        private void onGameFinished()
+        {
+            if (!gameData.IsRunning)
+            {
+                reset();
+            }
+        }
 
         private void onCherryEaten()
         {
             if (gameData.IsRunning && gameData.EatenCherries == gameData.TotalCherries)
             {
-                onGameFinished();
+                finishGame();
             }
         }
 
@@ -63,7 +69,7 @@ namespace PacmanRevival.Controller
         {
             if (gameData.IsRunning && gameData.PacGuyIsDead)
             {
-                onGameFinished();
+                finishGame();
             }
         }
 
@@ -74,7 +80,7 @@ namespace PacmanRevival.Controller
                 gameData.RemainingTimeInSeconds--;
                 if (gameData.RemainingTimeInSeconds == 0)
                 {
-                    onGameFinished();
+                    finishGame();
                 }
                 yield return new WaitForSeconds(secondsPassed);
             }
@@ -82,22 +88,49 @@ namespace PacmanRevival.Controller
         #endregion
 
         #region Setup
+        private void reset()
+        {
+            OnDisable();
+
+            initCherries();
+            evolveCherries();
+
+            gameData.TotalCherries = GameObject.FindGameObjectsWithTag("Cherry").Length;
+            gameData.EatenCherries = 0;
+            gameData.StdHiscore = 0; // TODO: Retrieve information from storage
+            gameData.RdHiscore = 0; // TODO: Retrieve information from storage
+            gameData.IsRunning = false;
+            gameData.CurrentScore = 0;
+            gameData.RemainingTimeInSeconds = gameSettings.TotalTimeInSeconds;
+
+            OnEnable();
+        }
         private void initCherries()
+        {
+            foreach (GameObject pathWithDrops in GameObject.FindGameObjectsWithTag("Path with drops"))
+            {
+                GameObject cherry = pathWithDrops.transform.GetChild(3).GetChild(0).gameObject;
+                GameObject specialCherry = pathWithDrops.transform.GetChild(3).GetChild(1).gameObject;
+                if (!cherry.activeInHierarchy && !specialCherry.activeInHierarchy)
+                {
+                    cherry.SetActive(true);
+                }
+            }
+        }
+
+        private void evolveCherries()
         {
             foreach (GameObject cherry in GameObject.FindGameObjectsWithTag("Cherry"))
             {
                 if (Random.Range(0f, 1.0f) < gameSettings.SpecialCherrySpawnRate)
                 {
-                    evolveCherry(cherry);
+                    cherry.SetActive(false);
+                    cherry.transform.parent.GetChild(1).gameObject.SetActive(true);
                 }
             }
         }
-
-        private void evolveCherry(GameObject cherry)
-        {
-            cherry.SetActive(false);
-            cherry.transform.parent.GetChild(1).gameObject.SetActive(true);
-        }
         #endregion
+
+        private void finishGame() => gameData.IsRunning = false;
     }
 }
