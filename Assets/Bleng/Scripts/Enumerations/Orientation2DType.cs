@@ -2,7 +2,7 @@ using System;
 
 namespace Bladengine.Enumerations
 {
-    public enum OrientationType
+    public enum Orientation2DType
     {
         XY,
         XZ

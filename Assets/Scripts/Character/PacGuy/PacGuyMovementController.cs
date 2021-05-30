@@ -4,6 +4,7 @@ using UnityEngine;
 using PacmanRevival.Repository;
 
 using Bladengine.Character;
+using Bladengine.Enumerations;
 
 using PacmanRevival.Enumerations.Data;
 
@@ -24,6 +25,11 @@ namespace PacmanRevival.Character.PacGuy
         [SerializeField]
         private GameDataRepository gameData;
         #endregion
+
+        public void teleport(Vector3 destination)
+        {
+            teleportTo(destination);
+        }
 
         private void reset() => StartCoroutine(resetCR());
 
