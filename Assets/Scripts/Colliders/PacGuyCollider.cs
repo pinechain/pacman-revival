@@ -2,8 +2,11 @@ using System.Collections;
 
 using UnityEngine;
 
+using Bladengine.Enumerations;
+
 using PacmanRevival.Repository;
 using PacmanRevival.Character.Ghost;
+using PacmanRevival.Character.PacGuy;
 
 namespace PacmanRevival.Colliders
 {
@@ -21,6 +24,11 @@ namespace PacmanRevival.Colliders
             testCollisionWithCherry(other);
             testCollisionWithSpecialCherry(other);
             testCollisionWithGhost(other);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            testCollisionWithPortal(other);
         }
 
         private void testCollisionWithCherry(Collider other)
@@ -52,6 +60,23 @@ namespace PacmanRevival.Colliders
                 else
                 {
                     gameData.PacGuyIsDead = true;
+                }
+            }
+        }
+
+        public void testCollisionWithPortal(Collider other)
+        {
+            PortalCollider portal = other.GetComponent<PortalCollider>();
+            if (portal != null)
+            {
+                switch (GetComponent<PacGuyMovementController>().Orientation)
+                {
+                    case Orientation2DType.XY:
+                        GetComponent<PacGuyMovementController>().teleport(new Vector3(portal.Destination.x, portal.Destination.y, transform.position.z));
+                        break;
+                    case Orientation2DType.XZ:
+                        GetComponent<PacGuyMovementController>().teleport(new Vector3(portal.Destination.x, transform.position.y, portal.Destination.z));
+                        break;
                 }
             }
         }

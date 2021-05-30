@@ -37,7 +37,7 @@ namespace PacmanRevival.Character.Ghost
         #region Attributes
         [Header("2D Orientation")]
         [SerializeField]
-        private OrientationType orientationAxis;
+        private Orientation2DType orientationAxis;
 
         [Header("Appearance")]
         [SerializeField]
@@ -130,9 +130,9 @@ namespace PacmanRevival.Character.Ghost
         {
             switch (orientationAxis)
             {
-                case OrientationType.XY:
+                case Orientation2DType.XY:
                     return transform.position.x == origin.x && transform.position.y == origin.y;
-                case OrientationType.XZ:
+                case Orientation2DType.XZ:
                     return transform.position.x == origin.x && transform.position.z == origin.z;
             }
 
@@ -143,10 +143,10 @@ namespace PacmanRevival.Character.Ghost
         {
             switch (orientationAxis)
             {
-                case OrientationType.XY:
+                case Orientation2DType.XY:
                     transform.position = new Vector3(transform.position.x, transform.position.y, origin.z);
                     break;
-                case OrientationType.XZ:
+                case Orientation2DType.XZ:
                     transform.position = new Vector3(transform.position.x, origin.y, transform.position.z);
                     break;
             }

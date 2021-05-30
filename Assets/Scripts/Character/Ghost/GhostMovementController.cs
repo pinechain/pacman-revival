@@ -35,7 +35,7 @@ namespace PacmanRevival.Character.Ghost
             navMeshAgent = ghostTransform.GetComponent<NavMeshAgent>();
         }
 
-        public void setupMovement(float pacGuyMovementSpeed, float speedRandomizer, GhostState ghostState, OrientationType orientationAxis)
+        public void setupMovement(float pacGuyMovementSpeed, float speedRandomizer, GhostState ghostState, Orientation2DType orientationAxis)
         {
             navMeshAgent.speed = randomizeMovementSpeed(pacGuyMovementSpeed, speedRandomizer);
             navMeshAgent.destination = getNextDestination(ghostState, orientationAxis);
@@ -46,7 +46,7 @@ namespace PacmanRevival.Character.Ghost
 
         private float randomizeMovementSpeed(float pacGuyMovementSpeed, float speedRandomizer) => Random.Range(pacGuyMovementSpeed - speedRandomizer, pacGuyMovementSpeed + speedRandomizer);
 
-        private Vector3 getNextDestination(GhostState ghostState, OrientationType orientationAxis)
+        private Vector3 getNextDestination(GhostState ghostState, Orientation2DType orientationAxis)
         {
             switch (ghostState)
             {
@@ -63,7 +63,7 @@ namespace PacmanRevival.Character.Ghost
             return origin;
         }
 
-        private Vector3 getNextStandardDestination(OrientationType orientationAxis)
+        private Vector3 getNextStandardDestination(Orientation2DType orientationAxis)
         {
             if (isInDestination(orientationAxis))
             {
@@ -79,7 +79,7 @@ namespace PacmanRevival.Character.Ghost
 
         private Vector3 getNextBraveDestination() => pacGuy.transform.position;
 
-        private bool isInDestination(OrientationType orientationAxis) => orientationAxis == OrientationType.XY ?
+        private bool isInDestination(Orientation2DType orientationAxis) => orientationAxis == Orientation2DType.XY ?
                 ghostTransform.position.x == visitingPoints[currentVisitingPoint].x && ghostTransform.position.y == visitingPoints[currentVisitingPoint].y :
                 ghostTransform.position.x == visitingPoints[currentVisitingPoint].x && ghostTransform.position.z == visitingPoints[currentVisitingPoint].z;
     }
